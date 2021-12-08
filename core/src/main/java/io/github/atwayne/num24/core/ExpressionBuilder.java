@@ -62,10 +62,12 @@ public class ExpressionBuilder {
     }
 
     private String PrintWithParentheses(Node node) {
+        assert node.LeftNode != null;
         var left = Build(node.LeftNode);
         if (ShouldPrintParentheses(node, node.LeftNode)) {
             left = String.format("(%s)", left);
         }
+        assert node.RightNode != null;
         var right = Build(node.RightNode);
         if (ShouldPrintParentheses(node, node.RightNode)) {
             right = String.format("(%s)", right);
