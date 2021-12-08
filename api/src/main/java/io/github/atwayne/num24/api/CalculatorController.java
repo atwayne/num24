@@ -20,7 +20,6 @@ public class CalculatorController {
         var calculator = new Calculator();
         var expressionBuilder = new ExpressionBuilder();
         var solutions = calculator.Calculate(input);
-        var expressions = solutions.stream().map(x -> expressionBuilder.Build(x)).toList();
-        return expressions;
+        return solutions.stream().map(expressionBuilder::Build).toList();
     }
 }
